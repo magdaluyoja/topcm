@@ -14,7 +14,7 @@ class AddProductsSelectionColumnInCartRulesTable extends Migration
     public function up()
     {
         Schema::table('cart_rules', function (Blueprint $table) {
-            $table->json('products_selection')->nullable();
+            $table->text('products_selection')->nullable();
         });
     }
 

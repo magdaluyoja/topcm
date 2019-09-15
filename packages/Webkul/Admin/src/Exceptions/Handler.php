@@ -56,7 +56,8 @@ class Handler extends ExceptionHandler
             return response()->json(['error' => $this->jsonErrorMessages[401]], 401);
         }
 
-        return redirect()->guest(route('auth.login'));
+        //return redirect()->guest(route('auth.login'));
+        return redirect()->guest(route('admin.session.create'));
     }
 
     private function isAdminUri()
