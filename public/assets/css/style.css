@@ -625,7 +625,7 @@ img {
 }
 
 .count {
-  position: absolute;
+/*  position: absolute;
   top: 13px;
   left: 1px;
   color: #555555;
@@ -635,7 +635,7 @@ img {
   font-size: 10px;
   line-height: 20px;
   text-align: center;
-  border-radius: 50%;
+  border-radius: 50%;*/
 }
 
 .count-inverse {
@@ -790,14 +790,14 @@ p {
 }
 
 ul {
-  list-style: none;
-  padding: 0;
+  /*list-style: none;
+  padding: 0;*/
 }
 
 ul, ol {
-  padding-left: 16px;
+/*  padding-left: 16px;
   margin-top: 0;
-  margin-bottom: 20px;
+  margin-bottom: 20px;*/
 }
 
 .list-featured {
@@ -3561,13 +3561,13 @@ nav .btn-xs {
 }
 
 .dropdown-toggle::after {
-  content: "\f078";
+/*  content: "\f078";
   font-family: 'Font Awesome 5 Free';
   font-size: 10px;
   border: none;
   position: absolute;
   top: 10px;
-  margin-left: 4px;
+  margin-left: 4px;*/
 }
 
 .dropdown.show .dropdown-toggle::after {
@@ -5151,8 +5151,8 @@ table > thead > tr > th, table > thead > tr > td, table > tbody > tr > th, table
   }
 
   .navbar-expand-lg .last-menu-item.has-dropdown-toggle {
-    margin-right: 0 !important;
-    padding-right: 0 !important;
+  /*  margin-right: 0 !important;
+    padding-right: 0 !important;*/
   }
 
   .after-dropdown {

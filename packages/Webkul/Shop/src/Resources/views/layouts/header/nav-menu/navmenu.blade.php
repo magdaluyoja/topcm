@@ -65,8 +65,8 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
 </script>
 
 <script type="text/x-template" id="category-item-template">
-    <li>
-        <a :href="url+'/categories/'+this.item['translations'][0].slug">
+    <li class="list-item">
+        <a :href="url+'/categories/'+this.item['translations'][0].slug" class="dropdown-item">
             @{{ name }}&emsp;
             <i class="icon dropdown-right-icon" v-if="haveChildren && item.parent_id != null"></i>
         </a>

@@ -50,6 +50,13 @@
 
 <body @if (core()->getCurrentLocale()->direction == 'rtl') class="rtl" @endif style="scroll-behavior: smooth;">
 
+    <div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+
     {!! view_render_event('bagisto.shop.layout.body.before') !!}
 
     <div id="app">
@@ -121,12 +128,131 @@
     <script type="text/javascript" src="{{ bagisto_asset('js/shop.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}"></script>
 
+    <script src="/assets/js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <!-- / Core JavaScript -->
+
+    <!-- preloader -->
+    <script src="/assets/js/preloader.js"></script>
+    <!-- / preloader -->
+
+    <!-- gallery Script -->
+    <script src="/assets/js/jquery.shuffle.min.js"></script>
+    <script src="/assets/js/gallery.js"></script>
+    <script>
+    $(document).ready(function(){
+        if (Modernizr.touch) {
+            // show the close overlay button
+            $(".close-overlay").removeClass("hidden");
+            // handle the adding of hover class when clicked
+            $(".img").click(function(e){
+                if (!$(this).hasClass("hover")) {
+                    $(this).addClass("hover");
+                }
+            });
+            // handle the closing of the overlay
+            $(".close-overlay").click(function(e){
+                e.preventDefault();
+                e.stopPropagation();
+                if ($(this).closest(".img").hasClass("hover")) {
+                    $(this).closest(".img").removeClass("hover");
+                }
+            });
+        } else {
+            // handle the mouseenter functionality
+            $(".img").mouseenter(function(){
+                $(this).addClass("hover");
+            })
+            // handle the mouseleave functionality
+            .mouseleave(function(){
+                $(this).removeClass("hover");
+            });
+        }
+    });
+    </script>
+    <!-- / gallery Script -->
+
+    <!-- Owl Carousel -->
+    <script src="/assets/js/owl.carousel.min.js"></script>
+    <script>
+    $('#product-slider').owlCarousel({
+        loop:false,
+        margin:10,
+        smartSpeed: 1000,
+        nav:true,
+        dots:true,
+        navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>"],
+        items:1,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut'
+    })
+    </script>
+
+    <script>
+    $('#product-slider-2').owlCarousel({
+        loop:false,
+        margin:10,
+        smartSpeed: 1000,
+        nav:true,
+        dots:true,
+        navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>"],
+        items:1,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut'
+    })
+    </script>
+
+    <script>
+    $('#product-slider-3').owlCarousel({
+        loop:false,
+        margin:10,
+        smartSpeed: 1000,
+        nav:true,
+        dots:true,
+        navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>"],
+        items:1,
+        animateIn: 'fadeIn',
+        animateOut: 'fadeOut'
+    })
+    </script>
+
+    <script>
+    $('#clients-carousel').owlCarousel({
+        loop:true,
+        margin:100,
+        dots: false,
+        autoplay:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:4
+            }
+        }
+    })
+    </script>
     @stack('scripts')
 
     {!! view_render_event('bagisto.shop.layout.body.after') !!}
 
     <div class="modal-overlay"></div>
 
+    <script type="text/javascript">
+            $(document).scroll(function(){
+                var mainHeaderTop = $("#main-header-top").offset();
+                var w = $(window);
+                $("#bg-holder").css("top",mainHeaderTop.top-w.scrollTop());
+
+                var headerBottom = $("#header-bottom").offset();
+                var w = $(window);
+                $("#hdrbtn-bgholder").css("top",headerBottom.top-w.scrollTop());
+            });
+    </script>
 </body>
 
 </html>
