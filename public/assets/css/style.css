@@ -4292,7 +4292,7 @@ header.account-header {
 }
 
 /* line effect */
-#gallery.line-effect .gallery {
+.gallery-container.line-effect .gallery {
   margin: 0 !important;
   padding: 0 !important;
 }
@@ -4397,7 +4397,7 @@ ul.gallery.line-effect {
   transform: translate3d(0, -20px, 0);
 }
 
-.effect-bubba p {
+.effect-bubba .price {
   padding: 10px;
   opacity: 0;
   -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
@@ -4413,7 +4413,7 @@ ul.gallery.line-effect {
   transform: scale(1);
 }
 
-.effect-bubba:hover h2, .gallery-tall .effect-bubba:hover h2, .effect-bubba:hover p {
+.effect-bubba:hover h2, .gallery-tall .effect-bubba:hover h2, .effect-bubba:hover .price {
   opacity: 1;
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);

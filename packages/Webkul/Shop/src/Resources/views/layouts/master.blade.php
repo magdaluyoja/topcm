@@ -102,6 +102,7 @@
 
     </div>
 
+
     <script type="text/javascript">
         window.flashMessages = [];
 
@@ -130,7 +131,10 @@
 
     <script src="/assets/js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
+
+
     <!-- / Core JavaScript -->
 
     <!-- preloader -->
@@ -175,67 +179,6 @@
 
     <!-- Owl Carousel -->
     <script src="/assets/js/owl.carousel.min.js"></script>
-    <script>
-    $('#product-slider').owlCarousel({
-        loop:false,
-        margin:10,
-        smartSpeed: 1000,
-        nav:true,
-        dots:true,
-        navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>"],
-        items:1,
-        animateIn: 'fadeIn',
-        animateOut: 'fadeOut'
-    })
-    </script>
-
-    <script>
-    $('#product-slider-2').owlCarousel({
-        loop:false,
-        margin:10,
-        smartSpeed: 1000,
-        nav:true,
-        dots:true,
-        navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>"],
-        items:1,
-        animateIn: 'fadeIn',
-        animateOut: 'fadeOut'
-    })
-    </script>
-
-    <script>
-    $('#product-slider-3').owlCarousel({
-        loop:false,
-        margin:10,
-        smartSpeed: 1000,
-        nav:true,
-        dots:true,
-        navText:["<i class='fas fa-long-arrow-alt-left'></i>","<i class='fas fa-long-arrow-alt-right'></i>"],
-        items:1,
-        animateIn: 'fadeIn',
-        animateOut: 'fadeOut'
-    })
-    </script>
-
-    <script>
-    $('#clients-carousel').owlCarousel({
-        loop:true,
-        margin:100,
-        dots: false,
-        autoplay:true,
-        responsive:{
-            0:{
-                items:1
-            },
-            600:{
-                items:3
-            },
-            1000:{
-                items:4
-            }
-        }
-    })
-    </script>
     @stack('scripts')
 
     {!! view_render_event('bagisto.shop.layout.body.after') !!}
@@ -252,6 +195,11 @@
                 var w = $(window);
                 $("#hdrbtn-bgholder").css("top",headerBottom.top-w.scrollTop());
             });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+              $('[data-toggle="tooltip"]').tooltip();
+        });
     </script>
 </body>
 

@@ -1,4 +1,4 @@
-<section class="news-update">
+{{-- <section class="news-update">
     <div class="news-update-grid">
         <div class="block1">
             <img src="vendor/webkul/shop/assets/images/1.png" />
@@ -13,3 +13,4 @@
         </div>
     </div>
 </section>
+ --}}

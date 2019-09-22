@@ -70,6 +70,9 @@ export default {
             } else {
                 this.images_loaded = true;
             }
+            var timer = setInterval(function(){
+                   this_this.changeIndexRight();
+                },5000);
         },
 
         changeIndexLeft: function() {

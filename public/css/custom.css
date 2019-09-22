@@ -36,7 +36,9 @@ ul {
 .dropdown-toggle::after {
     display: none;
 }
-
+header{
+    margin-bottom: 50px !important;
+}
 .header .header-top div.left-content ul.search-container li.search-group .search-icon-wrapper button {
     padding: 2px 5px;
 }
@@ -45,7 +47,9 @@ ul {
     height: auto;
     border: none;
 }
-
+section.slider-block{
+    margin-top: 5%;
+}
 #hdrbtn-bgholder {
     height: 126px;
     position: fixed;
@@ -81,7 +85,7 @@ ul {
 }
 
 .right-content {
-    width: 246px;
+    width: 260px;
     margin-left: 10px;
 }
 
@@ -135,6 +139,28 @@ textarea:focus {
 .header .header-bottom .nav>li li:hover {
     background-color: #b7d522;
 }
+.gallery-container .container{
+    margin: 0px !important;
+    max-width: 100% !important;
+}
+.btn-view-item{
+    font-size: 14px !important;
+}
+.gallery-button{
+    cursor: pointer;
+}
+.btn{
+    border: none !important;
+}
+.icon.wishlist-icon{
+    width: 15px !important;
+    height: 15px !important;
+    vertical-align: middle !important;
+}
+.add-to-wishlist{
+    padding-top: 12px !important;
+    padding-bottom: 13px !important;
+}
 @media(max-width: 991px) {
     #hdrbtn-bgholder {
         /*display: none;*/
@@ -183,6 +209,6 @@ textarea:focus {
 
 @media(min-width: 428px){
 	.left-content {
-	    width: calc(100% - 246px);
+	    width: calc(100% - 260px);
 	}
 }
