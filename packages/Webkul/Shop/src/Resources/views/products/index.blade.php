@@ -46,13 +46,24 @@
                         @inject ('toolbarHelper', 'Webkul\Product\Helpers\Toolbar')
 
                         @if ($toolbarHelper->getCurrentMode() == 'grid')
-                            <div class="product-grid-3">
+                            <section class="gallery-container p-0 line-effect">
+                                <div class="container full-width">
+                                    <ul class="row gallery line-effect list-unstyled mb-0" id="grid">
+                                        <!-- gallery -->
+                                        @foreach ($products as $productFlat)
+                                            @include ('shop::products.list.card', ['product' => $productFlat])
+                                        @endforeach
+                                    </ul><!-- / gallery -->
+                                </div><!-- / container -->
+                            </section>
+
+                            {{-- <div class="product-grid-3">
                                 @foreach ($products as $productFlat)
 
                                     @include ('shop::products.list.card', ['product' => $productFlat])
 
                                 @endforeach
-                            </div>
+                            </div> --}}
                         @else
                             <div class="product-list">
                                 @foreach ($products as $productFlat)

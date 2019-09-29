@@ -982,174 +982,175 @@ $(document).ready(function () {
         mounted: function mounted() {
             this.addServerErrors();
             this.addFlashMessages();
+            if ($("#grid").length) {
+                var $grid = $('#grid'),
+                    //locate what we want to sort 
+                $filterOptions = $('.gallery-filter li'),
+                    //locate the filter categories
+                $sizer = $grid.find('.shuffle_sizer'),
+                    //sizer stores the size of the items
 
-            var $grid = $('#grid'),
-                //locate what we want to sort 
-            $filterOptions = $('.gallery-filter li'),
-                //locate the filter categories
-            $sizer = $grid.find('.shuffle_sizer'),
-                //sizer stores the size of the items
+                init = function init() {
 
-            init = function init() {
+                    // None of these need to be executed synchronously
+                    setTimeout(function () {
+                        listen();
+                        setupFilters();
+                    }, 100);
 
-                // None of these need to be executed synchronously
-                setTimeout(function () {
-                    listen();
-                    setupFilters();
-                }, 100);
-
-                // instantiate the plugin
-                $grid.shuffle({
-                    itemSelector: '[class*="col-"]',
-                    sizer: $sizer
-                });
-            },
-
-
-            // Set up button clicks
-            setupFilters = function setupFilters() {
-                var $btns = $filterOptions.children();
-                $btns.on('click', function (e) {
-                    e.preventDefault();
-                    var $this = $(this),
-                        isActive = $this.hasClass('active'),
-                        group = isActive ? 'all' : $this.data('group');
-
-                    // Hide current label, show current label in title
-                    if (!isActive) {
-                        $('.gallery-filter li a').removeClass('active');
-                    }
-
-                    $this.toggleClass('active');
-
-                    // Filter elements
-                    $grid.shuffle('shuffle', group);
-                });
-
-                $btns = null;
-            },
+                    // instantiate the plugin
+                    $grid.shuffle({
+                        itemSelector: '[class*="col-"]',
+                        sizer: $sizer
+                    });
+                },
 
 
-            // Re layout shuffle when images load. This is only needed
-            // below 768 pixels because the .picture-item height is auto and therefore
-            // the height of the picture-item is dependent on the image
-            // I recommend using imagesloaded to determine when an image is loaded
-            // but that doesn't support IE7
-            listen = function listen() {
-                var debouncedLayout = $.throttle(300, function () {
-                    $grid.shuffle('update');
-                });
+                // Set up button clicks
+                setupFilters = function setupFilters() {
+                    var $btns = $filterOptions.children();
+                    $btns.on('click', function (e) {
+                        e.preventDefault();
+                        var $this = $(this),
+                            isActive = $this.hasClass('active'),
+                            group = isActive ? 'all' : $this.data('group');
 
-                // Get all images inside shuffle
-                $grid.find('img').each(function () {
-                    var proxyImage;
+                        // Hide current label, show current label in title
+                        if (!isActive) {
+                            $('.gallery-filter li a').removeClass('active');
+                        }
 
-                    // Image already loaded
-                    if (this.complete && this.naturalWidth !== undefined) {
-                        return;
-                    }
+                        $this.toggleClass('active');
 
-                    // If none of the checks above matched, simulate loading on detached element.
-                    proxyImage = new Image();
-                    $(proxyImage).on('load', function () {
-                        $(this).off('load');
-                        debouncedLayout();
+                        // Filter elements
+                        $grid.shuffle('shuffle', group);
                     });
 
-                    proxyImage.src = this.src;
-                });
-
-                // Because this method doesn't seem to be perfect.
-                setTimeout(function () {
-                    debouncedLayout();
-                }, 500);
-            };
-
-            init();
-
-            var $grid2 = $('#grid2'),
-                //locate what we want to sort 
-            $filterOptions2 = $('.gallery-filter li'),
-                //locate the filter categories
-            $sizer2 = $grid2.find('.shuffle_sizer'),
-                //sizer stores the size of the items
-
-            init2 = function init2() {
-
-                // None of these need to be executed synchronously
-                setTimeout(function () {
-                    listen2();
-                    setupFilters2();
-                }, 100);
-
-                // instantiate the plugin
-                $grid2.shuffle({
-                    itemSelector: '[class*="col-"]',
-                    sizer: $sizer2
-                });
-            },
+                    $btns = null;
+                },
 
 
-            // Set up button clicks
-            setupFilters2 = function setupFilters2() {
-                var $btns2 = $filterOptions2.children();
-                $btns2.on('click', function (e) {
-                    e.preventDefault();
-                    var $this = $(this),
-                        isActive = $this.hasClass('active'),
-                        group = isActive ? 'all' : $this.data('group');
-
-                    // Hide current label, show current label in title
-                    if (!isActive) {
-                        $('.gallery-filter li a').removeClass('active');
-                    }
-
-                    $this.toggleClass('active');
-
-                    // Filter elements
-                    $grid2.shuffle('shuffle', group);
-                });
-
-                $btns2 = null;
-            },
-
-
-            // Re layout shuffle when images load. This is only needed
-            // below 768 pixels because the .picture-item height is auto and therefore
-            // the height of the picture-item is dependent on the image
-            // I recommend using imagesloaded to determine when an image is loaded
-            // but that doesn't support IE7
-            listen2 = function listen2() {
-                var debouncedLayout = $.throttle(300, function () {
-                    $grid2.shuffle('update');
-                });
-
-                // Get all images inside shuffle
-                $grid2.find('img').each(function () {
-                    var proxyImage;
-
-                    // Image already loaded
-                    if (this.complete && this.naturalWidth !== undefined) {
-                        return;
-                    }
-
-                    // If none of the checks above matched, simulate loading on detached element.
-                    proxyImage = new Image();
-                    $(proxyImage).on('load', function () {
-                        $(this).off('load');
-                        debouncedLayout();
+                // Re layout shuffle when images load. This is only needed
+                // below 768 pixels because the .picture-item height is auto and therefore
+                // the height of the picture-item is dependent on the image
+                // I recommend using imagesloaded to determine when an image is loaded
+                // but that doesn't support IE7
+                listen = function listen() {
+                    var debouncedLayout = $.throttle(300, function () {
+                        $grid.shuffle('update');
                     });
 
-                    proxyImage.src = this.src;
-                });
+                    // Get all images inside shuffle
+                    $grid.find('img').each(function () {
+                        var proxyImage;
 
-                // Because this method doesn't seem to be perfect.
-                setTimeout(function () {
-                    debouncedLayout();
-                }, 500);
-            };
+                        // Image already loaded
+                        if (this.complete && this.naturalWidth !== undefined) {
+                            return;
+                        }
 
-            init2();
+                        // If none of the checks above matched, simulate loading on detached element.
+                        proxyImage = new Image();
+                        $(proxyImage).on('load', function () {
+                            $(this).off('load');
+                            debouncedLayout();
+                        });
+
+                        proxyImage.src = this.src;
+                    });
+
+                    // Because this method doesn't seem to be perfect.
+                    setTimeout(function () {
+                        debouncedLayout();
+                    }, 500);
+                };
+
+                init();
+
+                var $grid2 = $('#grid2'),
+                    //locate what we want to sort 
+                $filterOptions2 = $('.gallery-filter li'),
+                    //locate the filter categories
+                $sizer2 = $grid2.find('.shuffle_sizer'),
+                    //sizer stores the size of the items
+
+                init2 = function init2() {
+
+                    // None of these need to be executed synchronously
+                    setTimeout(function () {
+                        listen2();
+                        setupFilters2();
+                    }, 100);
+
+                    // instantiate the plugin
+                    $grid2.shuffle({
+                        itemSelector: '[class*="col-"]',
+                        sizer: $sizer2
+                    });
+                },
+
+
+                // Set up button clicks
+                setupFilters2 = function setupFilters2() {
+                    var $btns2 = $filterOptions2.children();
+                    $btns2.on('click', function (e) {
+                        e.preventDefault();
+                        var $this = $(this),
+                            isActive = $this.hasClass('active'),
+                            group = isActive ? 'all' : $this.data('group');
+
+                        // Hide current label, show current label in title
+                        if (!isActive) {
+                            $('.gallery-filter li a').removeClass('active');
+                        }
+
+                        $this.toggleClass('active');
+
+                        // Filter elements
+                        $grid2.shuffle('shuffle', group);
+                    });
+
+                    $btns2 = null;
+                },
+
+
+                // Re layout shuffle when images load. This is only needed
+                // below 768 pixels because the .picture-item height is auto and therefore
+                // the height of the picture-item is dependent on the image
+                // I recommend using imagesloaded to determine when an image is loaded
+                // but that doesn't support IE7
+                listen2 = function listen2() {
+                    var debouncedLayout = $.throttle(300, function () {
+                        $grid2.shuffle('update');
+                    });
+
+                    // Get all images inside shuffle
+                    $grid2.find('img').each(function () {
+                        var proxyImage;
+
+                        // Image already loaded
+                        if (this.complete && this.naturalWidth !== undefined) {
+                            return;
+                        }
+
+                        // If none of the checks above matched, simulate loading on detached element.
+                        proxyImage = new Image();
+                        $(proxyImage).on('load', function () {
+                            $(this).off('load');
+                            debouncedLayout();
+                        });
+
+                        proxyImage.src = this.src;
+                    });
+
+                    // Because this method doesn't seem to be perfect.
+                    setTimeout(function () {
+                        debouncedLayout();
+                    }, 500);
+                };
+
+                init2();
+            }
         },
 
         methods: {

@@ -5,7 +5,7 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Icon-Sort-Down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
-        <g transform="translate(9.000000, 9.000000) rotate(90.000000) translate(-9.000000, -9.000000) translate(3.000000, 5.000000)" stroke="#979797" stroke-width="2">
+        <g transform="translate(9.000000, 9.000000) rotate(90.000000) translate(-9.000000, -9.000000) translate(3.000000, 5.000000)" stroke="#8b7b57" stroke-width="2">
             <path d="M1.13686838e-12,4 L10.068125,4" id="Path-3"></path>
             <polyline id="Path-4" points="8 0 12 4.08548298 8 8"></polyline>
         </g>

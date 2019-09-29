@@ -18,7 +18,7 @@ return [
     ],
 
     'home' => [
-        'page-title' => 'Bagisto - Home',
+        'page-title' => 'TO Persian Carpet Manila - Home',
         'featured-products' => 'Featured Products',
         'new-products' => 'New Products',
         'verify-email' => 'Verify Your Email Account',
@@ -59,14 +59,14 @@ return [
         'subscribed' => 'You Are Now Subscribed To Subscription Emails',
         'not-subscribed' => 'You Cannot Be Subscribed To Subscription Emails, Try Again After Some time',
         'already' => 'You Are Already Subscribed To Our Subscription List',
-        'unsubscribed' => 'You Are Unsubscribed From Bagisto Subscription Mails',
+        'unsubscribed' => 'You Are Unsubscribed From TO Persian Carpet Manila Subscription Mails',
         'already-unsub' => 'You Are Already Unsubscribed',
         'not-subscribed' => 'Error! Mail Cannot Be Sent Currently, Please Try Again Later'
     ],
 
     'search' => [
         'no-results' => 'No Results Found',
-        'page-title' => 'Bagisto - Search',
+        'page-title' => 'TO Persian Carpet Manila - Search',
         'found-results' => 'Search Results Found',
         'found-result' => 'Search Result Found'
     ],

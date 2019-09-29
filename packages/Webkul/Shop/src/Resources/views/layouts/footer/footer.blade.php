@@ -1,4 +1,41 @@
-<div class="footer">
+<div class="footer-widgets">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 text-center">
+                <div class="widget">
+                    <img src="/logo.png" alt="logo" class="footer-logo">
+                    <p class="mb-3">TO Persian Carpet Manila</p>
+                </div><!-- / widget -->
+            </div><!-- / column-->
+
+            <div class="col-lg-3 text-center">
+                <div class="widget">
+                    <?php
+                        $categories = [];
+
+                        foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category){
+                            if ($category->slug)
+                                array_push($categories, $category);
+                        }
+                    ?>
+                    <h3 class="widget-title">CATEGORIES</h3>
+                    @if (count($categories))
+                        <ul class="footer-list pl-0 mb-0">
+                            @foreach ($categories as $key => $category)
+                                <li class="mb-3">
+                                    <a href="{{ route('shop.categories.index', $category->slug) }}">{{ $category->name }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    @endif
+                </div><!-- / widget -->
+            </div><!-- / column-->
+
+            {!! DbView::make(core()->getCurrentChannel())->field('footer_content')->render() !!}
+        </div><!-- / row -->
+    </div><!-- / container -->
+</div>
+<!-- <div class="footer">
     <div class="footer-content">
         <div class="footer-list-container">
 
@@ -91,4 +128,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>-->

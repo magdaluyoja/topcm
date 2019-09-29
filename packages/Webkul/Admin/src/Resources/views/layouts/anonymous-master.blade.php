@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <link rel="icon" sizes="16x16" href="{{ asset('vendor/webkul/ui/assets/images/favicon.ico') }}" />
+        <link rel="icon" sizes="16x16" href="/favicon.ico" />
 
         <link rel="stylesheet" href="{{ asset('vendor/webkul/admin/assets/css/admin.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
@@ -78,9 +78,9 @@
 
                     <div class="brand-logo">
                         @if (core()->getConfigData('general.design.admin_logo.logo_image'))
-                            <img src="{{ \Illuminate\Support\Facades\Storage::url(core()->getConfigData('general.design.admin_logo.logo_image')) }}" alt="Bagisto" style="height: 40px; width: 110px;"/>
+                            <img src="{{ \Illuminate\Support\Facades\Storage::url(core()->getConfigData('general.design.admin_logo.logo_image')) }}" alt="TO Persian Carpet Manila" style="height: 100px; "/>
                         @else
-                            <img src="{{ asset('vendor/webkul/ui/assets/images/logo.png') }}" alt="Bagisto"/>
+                            <img src="/logo.png" alt="TO Persian Carpet Manila" style="height: 100px;"/>
                         @endif
                     </div>
 
@@ -92,11 +92,12 @@
 
                     <div class="footer">
                         <p>
-                            @if (core()->getConfigData('general.content.footer.footer_content'))
+                           {{--  @if (core()->getConfigData('general.content.footer.footer_content'))
                                 {{ core()->getConfigData('general.content.footer.footer_content') }}
                             @else
                                 {{ trans('admin::app.footer.copy-right') }}
-                            @endif
+                            @endif --}}
+                            © Copyright 2019 TO Persian Carpet Manila, All rights reserved.
                         </p>
                     </div>
 

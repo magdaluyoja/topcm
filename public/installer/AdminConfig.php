@@ -98,7 +98,7 @@ $data    = array();
 
             $conn->close();
         } else {
-            $data['support_error'] = 'Bagisto currently support MySQL only. Press OK to still continue or change you DB connection to MySQL';
+            $data['support_error'] = 'TO Persian Carpet Manila currently support MySQL only. Press OK to still continue or change you DB connection to MySQL';
         }
 
         $storage_output = exec('cd ../.. && php artisan storage:link 2>&1');

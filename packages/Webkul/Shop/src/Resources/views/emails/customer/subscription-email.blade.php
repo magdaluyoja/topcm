@@ -8,11 +8,11 @@
         </div>
 
         <div  style="font-size:16px; color:#242424; font-weight:600; margin-top: 60px; margin-bottom: 15px">
-            Welcome to Bagisto - Email Subscription
+            Welcome to TO Persian Carpet Manila - Email Subscription
         </div>
 
         <div>
-            Thanks for putting me into your inbox. It’s been a while since you’ve read Bagisto
+            Thanks for putting me into your inbox. It’s been a while since you’ve read TO Persian Carpet Manila
             email, and we don’t want to overwhelm your inbox. If you still do not want to receive
             the latest email marketing news then for sure click the button below.
         </div>

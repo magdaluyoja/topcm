@@ -15,7 +15,7 @@ return [
     ],
 
     'home' => [
-        'page-title' => 'Bagisto - Home',
+        'page-title' => 'TO Persian Carpet Manila - Home',
         'featured-products' => 'Produtos em Destaque',
         'new-products' => 'Novos Produtos',
         'verify-email' => 'Verifique sua Conta de E-mail',

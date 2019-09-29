@@ -92,11 +92,12 @@
 
         <div class="footer-bottom">
             <p>
-                @if (core()->getConfigData('general.content.footer.footer_content'))
+                {{-- @if (core()->getConfigData('general.content.footer.footer_content'))
                     {{ core()->getConfigData('general.content.footer.footer_content') }}
                 @else
                     {{ trans('admin::app.footer.copy-right') }}
-                @endif
+                @endif --}}
+                © Copyright 2019 TO Persian Carpet Manila, All rights reserved.
             </p>
         </div>
 

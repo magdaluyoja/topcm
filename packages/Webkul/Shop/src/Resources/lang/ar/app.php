@@ -63,7 +63,7 @@ return [
 
     'search' => [
         'no-results' => 'لا توجد نتائج',
-        'page-title' => 'Bagisto - Search',
+        'page-title' => 'TO Persian Carpet Manila - Search',
         'found-results' => 'تم العثور على نتائج البحث',
         'found-result' => 'تم العثور على نتيجة البحث'
     ],
