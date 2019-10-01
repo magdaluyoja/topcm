@@ -47,7 +47,7 @@
                 // Get accurate measurements from that.
                 var imageWidth = theImage.width;
                 var imageHeight = theImage.height;
-                console.log(imageHeight);
+                
                 if(imageHeight > 800){
                     $("#gallery_"+count).addClass("tall-gallery");
                 }

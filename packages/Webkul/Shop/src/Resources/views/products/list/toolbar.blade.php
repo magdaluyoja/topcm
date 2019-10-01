@@ -17,7 +17,7 @@
 
     <div class="pager">
 
-        <div class="view-mode">
+        <div class="view-mode hidden">
             @if ($toolbarHelper->isModeActive('grid'))
                 <span class="grid-view">
                     <i class="icon grid-view-icon"></i>

@@ -130,62 +130,37 @@
     <script type="text/javascript" src="{{ bagisto_asset('js/shop.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}"></script>
 
-    <script src="/assets/js/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-
-
-    <!-- / Core JavaScript -->
-
-    <!-- preloader -->
     <script src="/assets/js/preloader.js"></script>
-    <!-- / preloader -->
-
-    <!-- gallery Script -->
-    <script src="/assets/js/jquery.shuffle.min.js"></script>
-    <script src="/assets/js/gallery.js"></script>
-    <script>
-    $(document).ready(function(){
-        if (Modernizr.touch) {
-            // show the close overlay button
-            $(".close-overlay").removeClass("hidden");
-            // handle the adding of hover class when clicked
-            $(".img").click(function(e){
-                if (!$(this).hasClass("hover")) {
-                    $(this).addClass("hover");
-                }
-            });
-            // handle the closing of the overlay
-            $(".close-overlay").click(function(e){
-                e.preventDefault();
-                e.stopPropagation();
-                if ($(this).closest(".img").hasClass("hover")) {
-                    $(this).closest(".img").removeClass("hover");
-                }
-            });
-        } else {
-            // handle the mouseenter functionality
-            $(".img").mouseenter(function(){
-                $(this).addClass("hover");
-            })
-            // handle the mouseleave functionality
-            .mouseleave(function(){
-                $(this).removeClass("hover");
-            });
-        }
-    });
-    </script>
+    
     <!-- / gallery Script -->
 
     <!-- Owl Carousel -->
-    <script src="/assets/js/owl.carousel.min.js"></script>
     @stack('scripts')
 
     {!! view_render_event('bagisto.shop.layout.body.after') !!}
 
     <div class="modal-overlay"></div>
-
+    <style>
+        .div-trustlogo img{
+            width:200px;
+        }
+    </style>
+    <div class="div-trustlogo text-center">
+        <script type="text/javascript"> 
+            //<![CDATA[
+                var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/");
+                document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));
+            //]]>
+        </script>
+        <script language="JavaScript" type="text/javascript">
+            TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png", "POSDV", "none");
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip()
+            });
+        </script>
+    </div>
     <script type="text/javascript">
             $(document).scroll(function(){
                 var mainHeaderTop = $("#main-header-top").offset();
@@ -196,11 +171,6 @@
                 var w = $(window);
                 $("#hdrbtn-bgholder").css("top",headerBottom.top-w.scrollTop());
             });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-              $('[data-toggle="tooltip"]').tooltip();
-        });
     </script>
 </body>
 

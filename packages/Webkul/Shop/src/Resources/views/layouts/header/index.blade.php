@@ -167,7 +167,7 @@
                 <span class="sr-only">Toggle navigation</span>
             </button><!-- / navbar-toggler -->
 
-            <a class="navbar-brand mobile-brand m-auto" href="#x"><img src="/logo.png" alt=""></a>
+            <a class="navbar-brand mobile-brand m-auto" href="/"><img src="/logo.png" alt=""></a>
 
             <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbar-toggle-2" aria-controls="navbar-toggle-2" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="icon-bar top-bar"></span>
@@ -197,7 +197,7 @@
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->
 
-            <a class="navbar-brand m-auto" href="#x"><img src="/logo.png" alt=""></a>
+            <a class="navbar-brand m-auto" href="/"><img src="/logo.png" alt=""></a>
 
             <div class="collapse navbar-collapse" id="navbar-toggle-2">
                 <ul class="navbar-nav ml-auto">
