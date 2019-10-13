@@ -6,6 +6,14 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         'view' => 'shop::home.index'
     ])->name('shop.home.index');
 
+    //Blog
+    Route::get('/posts', 'Webkul\Shop\Http\Controllers\BlogController@index')->defaults('_config', [
+        'view' => 'shop::blog.index'
+    ])->name('shop.blog.index');
+    Route::get('/posts/{id}', 'Webkul\Shop\Http\Controllers\BlogController@getPost')->defaults('_config', [
+        'view' => 'shop::blog.post'
+    ])->name('shop.blog.post');
+    //End Blog
     //subscription
     //subscribe
     Route::get('/subscribe', 'Webkul\Shop\Http\Controllers\SubscriptionController@subscribe')->name('shop.subscribe');

@@ -170,6 +170,21 @@ textarea:focus {
 .footer-logo {
     max-height: 200px;
 }
+.footer-bg{
+    position: absolute;
+    bottom: -19px;
+    left: 0;
+    width: 100%;
+    background: white;
+    height: 150px;
+    z-index: 0;
+}
+.footer-bottom,.div-trustlogo{
+    position: relative;
+}
+.footer-bottom p{
+    text-align: center;
+}
 @media(max-width: 991px) {
     #hdrbtn-bgholder {
         /*display: none;*/

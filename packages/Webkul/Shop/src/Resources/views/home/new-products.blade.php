@@ -1,12 +1,12 @@
 @if (app('Webkul\Product\Repositories\ProductRepository')->getNewProducts()->count())
-<section class="gallery-container p-0 line-effect">
+<section class="gallery-container p-0 line-effect bg-white">
     <div class="container">
         <!-- gallery filter -->
         <ul class="gallery-filter list-inline text-center">
             <li>
                 <a href="#" data-group="all" class="active ml-2">
                     <h1 class="section-title"  style="font-family:'Amiri' !important; text-transform: uppercase;">{{  __('shop::app.home.new-products') }}</h1>
-                    <img src="{{ bagisto_asset('images/border.jpg') }}" alt="" style="width: 400px">
+                    <img src="{{ bagisto_asset('images/border.png') }}" alt="" style="width: 160px">
                 </a>
             </li>
         </ul>

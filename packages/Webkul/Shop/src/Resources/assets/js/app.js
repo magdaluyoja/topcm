@@ -105,7 +105,8 @@ $(document).ready(function() {
                     };
 
                 init();
-
+            }
+            if($("#grid2").length){
                 var $grid2 = $('#grid2'), //locate what we want to sort 
                     $filterOptions2 = $('.gallery-filter li'), //locate the filter categories
                     $sizer2 = $grid2.find('.shuffle_sizer'), //sizer stores the size of the items
@@ -186,6 +187,88 @@ $(document).ready(function() {
                     };
 
                 init2();
+            }
+            if($("#grid3").length){
+                var $grid3 = $('#grid3'), //locate what we want to sort 
+                    $filterOptions3 = $('.gallery-filter li'), //locate the filter categories
+                    $sizer3 = $grid3.find('.shuffle_sizer'), //sizer stores the size of the items
+
+                    init3 = function() {
+
+                        // None of these need to be executed synchronously
+                        setTimeout(function() {
+                            listen3();
+                            setupFilters3();
+                        }, 100);
+
+                        // instantiate the plugin
+                        $grid3.shuffle({
+                            itemSelector: '[class*="col-"]',
+                            sizer: $sizer3
+                        });
+                    },
+
+
+
+                    // Set up button clicks
+                    setupFilters3 = function() {
+                        var $btns3 = $filterOptions3.children();
+                        $btns3.on('click', function(e) {
+                            e.preventDefault();
+                            var $this = $(this),
+                                isActive = $this.hasClass('active'),
+                                group = isActive ? 'all' : $this.data('group');
+
+                            // Hide current label, show current label in title
+                            if (!isActive) {
+                                $('.gallery-filter li a').removeClass('active');
+                            }
+
+                            $this.toggleClass('active');
+
+                            // Filter elements
+                            $grid3.shuffle('shuffle', group);
+                        });
+
+                        $btns3 = null;
+                    },
+
+                    // Re layout shuffle when images load. This is only needed
+                    // below 768 pixels because the .picture-item height is auto and therefore
+                    // the height of the picture-item is dependent on the image
+                    // I recommend using imagesloaded to determine when an image is loaded
+                    // but that doesn't support IE7
+                    listen3 = function() {
+                        var debouncedLayout = $.throttle(300, function() {
+                            $grid3.shuffle('update');
+                        });
+
+                        // Get all images inside shuffle
+                        $grid3.find('img').each(function() {
+                            var proxyImage;
+
+                            // Image already loaded
+                            if (this.complete && this.naturalWidth !== undefined) {
+                                return;
+                            }
+
+                            // If none of the checks above matched, simulate loading on detached element.
+                            proxyImage = new Image();
+                            $(proxyImage).on('load', function() {
+                                $(this).off('load');
+                                debouncedLayout();
+                            });
+
+                            proxyImage.src = this.src;
+                        });
+
+                        // Because this method doesn't seem to be perfect.
+                        setTimeout(function() {
+                            debouncedLayout();
+                        }, 500);
+                    };
+
+                init3();
             }
         },
 
