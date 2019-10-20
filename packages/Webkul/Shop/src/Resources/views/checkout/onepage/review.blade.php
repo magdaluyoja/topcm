@@ -93,32 +93,24 @@
                     {!! view_render_event('bagisto.shop.checkout.price.before', ['item' => $item]) !!}
 
                     <div class="row">
-                        <div class="col-sm-6">
-                            <span class="title">
-                                {{ __('shop::app.checkout.onepage.price') }}
-                            </span>
-                        </div>
-                        <div class="col-sm-6  text-right">
-                            <span class="value">
-                                {{ core()->currency($item->base_price) }}
-                            </span>
-                        </div>
+                        <span class="title">
+                            {{ __('shop::app.checkout.onepage.price') }}
+                        </span>
+                        <span class="value">
+                            {{ core()->currency($item->base_price) }}
+                        </span>
                     </div>
 
                     {!! view_render_event('bagisto.shop.checkout.price.after', ['item' => $item]) !!}
                     {!! view_render_event('bagisto.shop.checkout.quantity.before', ['item' => $item]) !!}
 
                     <div class="row">
-                        <div class="col-sm-6">
-                            <span class="title">
-                                {{ __('shop::app.checkout.onepage.quantity') }}
-                            </span>
-                        </div>
-                        <div class="col-sm-6 text-right">
-                            <span class="value">
-                                {{ $item->quantity }}
-                            </span>
-                        </div>
+                        <span class="title">
+                            {{ __('shop::app.checkout.onepage.quantity') }}
+                        </span>
+                        <span class="value">
+                            {{ $item->quantity }}
+                        </span>
                     </div>
 
                     {!! view_render_event('bagisto.shop.checkout.quantity.after', ['item' => $item]) !!}

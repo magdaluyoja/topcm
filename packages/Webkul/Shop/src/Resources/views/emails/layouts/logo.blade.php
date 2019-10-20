@@ -1,5 +1,1 @@
-@if (core()->getConfigData('general.design.admin_logo.logo_image'))
-    <img src="{{ \Illuminate\Support\Facades\Storage::url(core()->getConfigData('general.design.admin_logo.logo_image')) }}" alt="TO Persian Carpet Manila" style="height: 40px; width: 110px;"/>
-@else
-    <img src="{{ bagisto_asset('images/logo.svg') }}">
-@endif
+<img src="{{ bagisto_asset('images/logo.png') }}" style='height:90px;'>

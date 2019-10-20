@@ -34,6 +34,11 @@
     background-image: url("../images/Icon-Settings.svg");
 }
 
+.cms-icon {
+    @extend %menu-properties;
+    background-image: url("../images/Icon-CMS.svg");
+}
+
 .promotion-icon {
     @extend %menu-properties;
     background-image: url("../images/icon-promotion.svg");
@@ -256,6 +261,10 @@
     .settings-icon {
         background-image: url("../images/Icon-Settings-Active.svg");
     }
+    
+    .cms-icon {
+        background-image: url("../images/Icon-CMS-Active.svg");
+    }
 
     .configuration-icon {
         background-image: url("../images/Icon-Configure-Active.svg");
@@ -294,6 +303,10 @@
 
     &.settings-icon {
         background-image: url("../images/Icon-Settings-Active.svg");
+    }
+
+    &.cms-icon {
+        background-image: url("../images/Icon-CMS-Active.svg");
     }
 
     &.configuration-icon {

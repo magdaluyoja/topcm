@@ -179,21 +179,17 @@
             <div class="collapse navbar-collapse" id="navbar-toggle-1">
                 <ul class="navbar-nav mr-auto">
                      <li class="nav-item dropdown">
-                        <a class="nav-link first-menu-item active" href="/" >Home</a>
+                        <a class="nav-link first-menu-item {{ Request::is('/') ? 'active' : ''}}" href="/"  style="width: 110px">Home</a>
                     </li><!-- / dropdown -->
-                    <li class="nav-item after-dropdown">
-                        <a class="nav-link  middle-item" href="/gallery">Gallery</a>
-                    </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle middle-item" href="#x" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories <i class="icon arrow-down-icon"></i></a>
+                        <a class="nav-link dropdown-toggle middle-item {{strpos(url()->current(), 'categories') ? 'active' : ''}}" href="#x" id="dropdown2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width: 152px">Categories <i class="icon arrow-down-icon"></i></a>
                         <div class="dropdown-menu drop-to-right animated fadeIn fast" aria-labelledby="dropdown2">
                             @include('shop::layouts.header.nav-menu.navmenu')
-                            {{-- <a class="dropdown-item" href="#x">Framed</a>
-                            <a class="dropdown-item" href="#x">Print</a>
-                            <a class="dropdown-item" href="#x">Digital</a>
-                            <a class="dropdown-item" href="#x">Photography</a> --}}
                         </div><!-- / dropdown-menu -->
                     </li><!-- / dropdown -->
+                    <li class="nav-item after-dropdown">
+                        <a class="nav-link  middle-item {{strpos(url()->current(), '/pages/about-us') ? 'active' : ''}}" href="/pages/about-us" style="width: 152px">About Us</a>
+                    </li>
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->
 
@@ -202,13 +198,13 @@
             <div class="collapse navbar-collapse" id="navbar-toggle-2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link middle-item" href="blog.html">Blog</a>
+                        <a class="nav-link middle-item {{strpos(url()->current(), '/posts') ? 'active' : ''}}" href="/posts" style="width: 152px">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link middle-item" href="contact.html">Contact</a>
+                        <a class="nav-link middle-item {{strpos(url()->current(), '/gallery') ? 'active' : ''}}" href="/gallery" style="width: 152px">Gallery</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link last-menu-item" href="#x" id="dropdown3">Shopping Cart</a>
+                        <a class="nav-link last-menu-item {{strpos(url()->current(), '/contact-us') ? 'active' : ''}}" href="/pages/contact-us"  style="width: 110px">Contact Us</a>
                     </li><!-- / dropdown -->
                 </ul><!-- / navbar-nav -->
             </div><!-- / navbar-collapse -->

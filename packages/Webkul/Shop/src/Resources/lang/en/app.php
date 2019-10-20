@@ -296,6 +296,11 @@ return [
                     'page-tile' => 'Review #:id',
                 ]
             ]
+        ],
+
+        'contactus'=>[
+            'sent'=>'Message was sent successfully.',
+            'failed'=>'There was an error sending your message. Please try again later.'
         ]
     ],
 

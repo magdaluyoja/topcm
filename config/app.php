@@ -203,8 +203,6 @@ return [
          */
 
         Dimsav\Translatable\TranslatableServiceProvider::class,
-        Corcel\Laravel\CorcelServiceProvider::class,
-
 
         /*
          * Application Service Providers...

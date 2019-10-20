@@ -1237,6 +1237,261 @@ $(document).ready(function () {
 
                 init3();
             }
+            if ($("#grid-gallery").length) {
+                var galleryMenu = "<li><a href='#' data-group='all' class='active ml-2'>SEE ALL</a></li>";
+                var gallery = "";
+                $(".blocks-gallery-item figure figcaption a").each(function () {
+                    var label = $(this).text().toUpperCase();
+                    var group = label.replace(" ", "");
+                    galleryMenu += "<li><a href='#' data-group='" + group + "'>" + label + "</a></li>";
+                });
+                $("#gallery-menu").html(galleryMenu);
+
+                $(".blocks-gallery-item").each(function (i, val) {
+                    //console.log(i);
+                    console.log($(this));
+                    //console.log($(this));
+                    var img = $(this)[0].childNodes[0].childNodes[0];
+                    var imgSrc = $(img).attr("src");
+                    var title = $(this)[0].childNodes[0].childNodes[1];
+                    var label = $(title).text().toUpperCase();
+                    var group = label.replace(" ", "");
+                    var link = title.childNodes[0].href.split("?")[1].split("=")[1];
+                    gallery += "<li class='col-md-6 col-lg-4 gallery' data-groups='[\"" + group + "\"]'>\
+                                    <figure class='gallery-item effect-bubba'>\
+                                        <img src='" + imgSrc + "' alt='" + label + "'>\
+                                        <figcaption>\
+                                            <div class='hover-content'>\
+                                                <h2 class='hover-title text-center text-white'>" + label + "</h2>\
+                                                <p class='gallery-info text-center text-white'>\
+                                                    <span class='gallery-icons'>\
+                                                        <a href='/gallery/" + link + "' class='gallery-button'><i class='fas fa-link'></i></a>\
+                                                    </span>\
+                                                </p>\
+                                            </div>\
+                                        </figcaption>\
+                                    </figure>\
+                                </li>";
+                });
+
+                $("#grid-gallery").html(gallery);
+                $("#mainGalTemp").hide();
+
+                var $gridGallery = $('#grid-gallery'),
+                    //locate what we want to sort 
+                $filterOptions = $('.gallery-filter li'),
+                    //locate the filter categories
+                $sizer = $gridGallery.find('.shuffle_sizer'),
+                    //sizer stores the size of the items
+
+                initGallery = function initGallery() {
+
+                    // None of these need to be executed synchronously
+                    setTimeout(function () {
+                        listenGallery();
+                        setupFiltersGallery();
+                    }, 100);
+
+                    // instantiate the plugin
+                    $gridGallery.shuffle({
+                        itemSelector: '[class*="col-"]',
+                        sizer: $sizer
+                    });
+                },
+
+
+                // Set up button clicks
+                setupFiltersGallery = function setupFiltersGallery() {
+                    var $btns = $filterOptions.children();
+                    $btns.on('click', function (e) {
+                        e.preventDefault();
+                        var $this = $(this),
+                            isActive = $this.hasClass('active'),
+                            group = isActive ? 'all' : $this.data('group');
+
+                        // Hide current label, show current label in title
+                        if (!isActive) {
+                            $('.gallery-filter li a').removeClass('active');
+                        }
+
+                        $this.toggleClass('active');
+
+                        // Filter elements
+                        $gridGallery.shuffle('shuffle', group);
+                    });
+
+                    $btns = null;
+                },
+
+
+                // Re layout shuffle when images load. This is only needed
+                // below 768 pixels because the .picture-item height is auto and therefore
+                // the height of the picture-item is dependent on the image
+                // I recommend using imagesloaded to determine when an image is loaded
+                // but that doesn't support IE7
+                listenGallery = function listenGallery() {
+                    var debouncedLayout = $.throttle(300, function () {
+                        $gridGallery.shuffle('update');
+                    });
+
+                    // Get all images inside shuffle
+                    $gridGallery.find('img').each(function () {
+                        var proxyImage;
+
+                        // Image already loaded
+                        if (this.complete && this.naturalWidth !== undefined) {
+                            return;
+                        }
+
+                        // If none of the checks above matched, simulate loading on detached element.
+                        proxyImage = new Image();
+                        $(proxyImage).on('load', function () {
+                            $(this).off('load');
+                            debouncedLayout();
+                        });
+
+                        proxyImage.src = this.src;
+                    });
+
+                    // Because this method doesn't seem to be perfect.
+                    setTimeout(function () {
+                        debouncedLayout();
+                    }, 500);
+                };
+
+                initGallery();
+            }
+            if ($("#grid-gallery-one").length) {
+                var stripHtml = function stripHtml(html) {
+                    var tmp = document.createElement("DIV");
+                    tmp.innerHTML = html;
+                    return tmp.textContent || tmp.innerText || "";
+                };
+
+                var galleryMenuOne = "<li><a href='#' data-group='all' class='active ml-2'>GALLERY</a></li>";
+                var galleryOne = "";
+                $(".blocks-gallery-item figure figcaption a").each(function () {
+                    var label = $(this).text().toUpperCase();
+                    var group = label.replace(" ", "");
+                    galleryMenuOne += "<li><a href='#' data-group='" + group + "'>" + label + "</a></li>";
+                });
+                $("#gallery-menu-one").html(galleryMenuOne);
+
+                $(".blocks-gallery-item").each(function (i, val) {
+                    //console.log(i);
+                    console.log($(this));
+                    //console.log($(this));
+                    var img = $(this)[0].childNodes[0].childNodes[0];
+                    var imgSrc = $(img).attr("src");
+                    var titleDesc = $(this)[0].childNodes[0].childNodes[1].innerHTML;
+                    var title = stripHtml(titleDesc.split("<br>")[0]);
+                    var group = title.replace(/ /g, "");;
+                    var decription = titleDesc.split("<br>")[1].replace(/'/g, '"');
+
+                    galleryOne += "<li class='col-md-6 col-lg-4 gallery' data-groups='[\"" + group + "\"]'>\
+                                    <figure class='gallery-item effect-bubba'>\
+                                        <img src='" + imgSrc + "' alt='" + title + "' class='" + group + "'>\
+                                        <figcaption>\
+                                            <div class='hover-content'>\
+                                                <h2 class='hover-title text-center text-white'>" + title + "</h2>\
+                                                <p class='gallery-info text-center text-white'>\
+                                                    <span class='gallery-icons'>\
+                                                        <a href='#' class='gallery-button' data-imgsrc='" + imgSrc + "' data-desc='" + decription + "' data-title='" + title + "'><i class='fas fa-image'></i></a>\
+                                                    </span>\
+                                                </p>\
+                                            </div>\
+                                        </figcaption>\
+                                    </figure>\
+                                </li>";
+                });
+
+                $("#grid-gallery-one").html(galleryOne);
+                $("#mainGalTempOne").hide();
+
+                var $gridGalleryOne = $('#grid-gallery-one'),
+                    //locate what we want to sort 
+                $filterOptionsOne = $('.gallery-filter li'),
+                    //locate the filter categories
+                $sizer = $gridGalleryOne.find('.shuffle_sizer'),
+                    //sizer stores the size of the items
+
+                initGalleryOne = function initGalleryOne() {
+
+                    // None of these need to be executed synchronously
+                    setTimeout(function () {
+                        listenGalleryOne();
+                        setupFiltersGalleryOne();
+                    }, 100);
+
+                    // instantiate the plugin
+                    $gridGalleryOne.shuffle({
+                        itemSelector: '[class*="col-"]',
+                        sizer: $sizer
+                    });
+                },
+
+
+                // Set up button clicks
+                setupFiltersGalleryOne = function setupFiltersGalleryOne() {
+                    var $btnsOne = $filterOptionsOne.children();
+                    $btnsOne.on('click', function (e) {
+                        e.preventDefault();
+                        var $this = $(this),
+                            isActive = $this.hasClass('active'),
+                            group = isActive ? 'all' : $this.data('group');
+
+                        // Hide current label, show current label in title
+                        if (!isActive) {
+                            $('.gallery-filter li a').removeClass('active');
+                        }
+
+                        $this.toggleClass('active');
+
+                        // Filter elements
+                        $gridGalleryOne.shuffle('shuffle', group);
+                    });
+
+                    $btnsOne = null;
+                },
+
+
+                // Re layout shuffle when images load. This is only needed
+                // below 768 pixels because the .picture-item height is auto and therefore
+                // the height of the picture-item is dependent on the image
+                // I recommend using imagesloaded to determine when an image is loaded
+                // but that doesn't support IE7
+                listenGalleryOne = function listenGalleryOne() {
+                    var debouncedLayout = $.throttle(300, function () {
+                        $gridGalleryOne.shuffle('update');
+                    });
+
+                    // Get all images inside shuffle
+                    $gridGalleryOne.find('img').each(function () {
+                        var proxyImage;
+
+                        // Image already loaded
+                        if (this.complete && this.naturalWidth !== undefined) {
+                            return;
+                        }
+
+                        // If none of the checks above matched, simulate loading on detached element.
+                        proxyImage = new Image();
+                        $(proxyImage).on('load', function () {
+                            $(this).off('load');
+                            debouncedLayout();
+                        });
+
+                        proxyImage.src = this.src;
+                    });
+
+                    // Because this method doesn't seem to be perfect.
+                    setTimeout(function () {
+                        debouncedLayout();
+                    }, 500);
+                };
+
+                initGalleryOne();
+            }
         },
 
         methods: {

@@ -18,4 +18,8 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    
+    RewriteRule ^/blog\.php\?(.*) http://localhost:8000/posts/$1 [L,NC,R=301]
+
 </IfModule>

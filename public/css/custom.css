@@ -82,6 +82,7 @@ section.slider-block{
     margin-left: 3px;
     border: none;
     border-radius: 3px;
+    text-align: center;
 }
 
 .right-content {
@@ -90,11 +91,12 @@ section.slider-block{
 }
 
 .social {
-    width: 152px;
+    width: 260px;
+    /*margin-right: 15px;*/
 }
 
 .search-container {
-    width: calc(100% - 152px);
+    width: calc(100% - 215px);
 }
 
 .search-group,
@@ -118,6 +120,7 @@ section.slider-block{
 
 .search-content input {
     padding: 5px !important;
+    text-align: center;
 }
 
 input:focus,
@@ -170,25 +173,26 @@ textarea:focus {
 .footer-logo {
     max-height: 200px;
 }
-.footer-bg{
-    position: absolute;
-    bottom: -19px;
-    left: 0;
-    width: 100%;
-    background: white;
-    height: 150px;
-    z-index: 0;
+.right-content-menu{
+    float: right !important;
 }
-.footer-bottom,.div-trustlogo{
-    position: relative;
+
+.social a {
+    margin-right: 28px !important;
 }
-.footer-bottom p{
-    text-align: center;
+.blog.block{
+    margin: 0px !important;
 }
 @media(max-width: 991px) {
     #hdrbtn-bgholder {
         /*display: none;*/
         height: 68px;
+    }
+    .social a {
+        margin-right: 27px !important;
+    }
+    .nav-item>a.nav-link{
+        width: unset !important;
     }
 }
 
@@ -202,6 +206,11 @@ textarea:focus {
 	}
 }
 
+@media(max-width: 777px) {
+    .social a {
+        margin-right: 26px !important;
+    }
+}
 @media(max-width: 720px) {
     .header .header-bottom {
         display: block !important;
@@ -222,6 +231,9 @@ textarea:focus {
 	    top: 0;
 	    right: 0;
 	}
+    .social a {
+        margin-right: 10px !important;
+    }
 }
 
 @media(max-width: 575px) {
@@ -234,8 +246,18 @@ textarea:focus {
     }
 }
 
-@media(min-width: 428px){
+@media(min-width: 456px){
 	.left-content {
 	    width: calc(100% - 260px);
 	}
+}
+/*@media(min-width: 428px) and (max-width: 456px){
+    .left-content {
+        width: calc(100% - 260px);
+    }
+}*/
+@media(max-width: 405px){
+    .header .header-top div.left-content{
+        display: block;
+    }
 }

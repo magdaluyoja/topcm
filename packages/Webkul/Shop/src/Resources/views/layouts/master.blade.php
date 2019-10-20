@@ -11,7 +11,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="content-language" content="{{ app()->getLocale() }}">
 
-    <link rel="stylesheet" href="/themes/default/assets/css/shop.css">
+    <link href="/themes/default/assets/css/shop.css" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/css/ui.css') }}">
 
     <!-- Bootstrap 4 core CSS -->
@@ -30,7 +30,7 @@
     @if ($favicon = core()->getCurrentChannel()->favicon_url)
         <link rel="icon" sizes="16x16" href="{{ $favicon }}" />
     @else
-        <link rel="icon" sizes="16x16" href="/themes/default/assets/images/favicon.ico/" />
+        <link rel="icon" sizes="16x16" href="/favicon.ico" />
     @endif
 
     @yield('head')
@@ -42,6 +42,7 @@
     @show
 
     @stack('css')
+
     {!! view_render_event('bagisto.shop.layout.head') !!}
 
 </head>
@@ -89,7 +90,6 @@
 
         {!! view_render_event('bagisto.shop.layout.footer.after') !!}
 
-        <div class="footer-bg"></div>
         <div class="footer-bottom">
             <p>
                 {{-- @if (core()->getConfigData('general.content.footer.footer_content'))
@@ -127,7 +127,7 @@
         @endif
     </script>
 
-    <script type="text/javascript" src="/themes/default/assets/js/shop.js"></script>
+    <script src="/themes/default/assets/js/shop.js" type="text/javascript"></script>
     <script type="text/javascript" src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}"></script>
 
     <script src="/assets/js/preloader.js"></script>
@@ -155,16 +155,14 @@
         <script language="JavaScript" type="text/javascript">
             TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png", "POSDV", "none");
         </script>
-        
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('[data-toggle="tooltip"]').tooltip()
+            });
+        </script>
     </div>
     <script type="text/javascript">
-            $(document).ready(function(){
-                adjustHeader();
-            });
             $(document).scroll(function(){
-                adjustHeader();
-            });
-            function adjustHeader(){
                 var mainHeaderTop = $("#main-header-top").offset();
                 var w = $(window);
                 $("#bg-holder").css("top",mainHeaderTop.top-w.scrollTop());
@@ -172,9 +170,8 @@
                 var headerBottom = $("#header-bottom").offset();
                 var w = $(window);
                 $("#hdrbtn-bgholder").css("top",headerBottom.top-w.scrollTop());
-            }
+            });
     </script>
-    
 </body>
 
 </html>

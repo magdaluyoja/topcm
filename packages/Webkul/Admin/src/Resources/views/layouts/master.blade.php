@@ -14,7 +14,7 @@
         @yield('head')
 
         @yield('css')
-
+        <link rel="stylesheet" href="/css/custom-admin.css">
         {!! view_render_event('bagisto.admin.layout.head') !!}
 
     </head>

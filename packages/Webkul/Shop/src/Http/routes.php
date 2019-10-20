@@ -6,14 +6,30 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
         'view' => 'shop::home.index'
     ])->name('shop.home.index');
 
-    //Blog
     Route::get('/posts', 'Webkul\Shop\Http\Controllers\BlogController@index')->defaults('_config', [
         'view' => 'shop::blog.index'
     ])->name('shop.blog.index');
     Route::get('/posts/{id}', 'Webkul\Shop\Http\Controllers\BlogController@getPost')->defaults('_config', [
         'view' => 'shop::blog.post'
     ])->name('shop.blog.post');
-    //End Blog
+    
+    //gallery
+        
+    Route::get('/gallery', 'Webkul\Shop\Http\Controllers\GalleryController@getIndexGallery')->defaults('_config', [
+        'view' => 'shop::gallery.index'
+    ])->name('shop.gallery.index');
+    Route::get('/gallery/{id}', 'Webkul\Shop\Http\Controllers\GalleryController@getGalleryPage')->defaults('_config', [
+        'view' => 'shop::gallery.page'
+    ])->name('shop.gallery.page');
+
+    //end gallery
+
+
+    Route::post('/pages/contact-us/send', 'Webkul\Shop\Http\Controllers\ContactUsController@sendMessage')->defaults('_config', [
+        'redirect' => '/pages/contact-us'
+    ])->name('pages.contactus.send');
+
+
     //subscription
     //subscribe
     Route::get('/subscribe', 'Webkul\Shop\Http\Controllers\SubscriptionController@subscribe')->name('shop.subscribe');

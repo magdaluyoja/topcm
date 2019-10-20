@@ -5,6 +5,6 @@
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="arrow-down" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="Rectangle-2" fill="#A5A5A5" transform="translate(9.000000, 8.000000) rotate(-45.000000) translate(-9.000000, -8.000000) " points="6 5 12 11 6 11"></polygon>
+        <polygon id="Rectangle-2" fill="#fff" transform="translate(9.000000, 8.000000) rotate(-45.000000) translate(-9.000000, -8.000000) " points="6 5 12 11 6 11"></polygon>
     </g>
 </svg>
