@@ -108,6 +108,10 @@
         @include("shop::cms.aboutus");
 
     @php 
+        }else{
+    @endphp
+        {!! DbView::make($page)->field('html_content')->render() !!}
+    @php
         }
     @endphp
 @endsection
